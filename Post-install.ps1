@@ -1,8 +1,6 @@
 # Vérification des privilèges administrateurs
 if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; exit }
 
-Clear-Host
-
 # Définir l'URL et le chemin d'installation
 $SevenZipURL = "https://www.7-zip.org/a/7z2301-x64.exe"  # Mettez Ã  jour l'URL si une nouvelle version est disponible
 $InstallerPath = "$env:TEMP\7zsetup.exe"
